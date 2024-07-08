@@ -9,7 +9,7 @@ keep: false
 
 -- sure sild
 
-CREATE TABLE public.country
+CREATE TABLE public.auditlog
 (
     id SERIAL PRIMARY KEY,
     created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -23,7 +23,12 @@ CREATE TABLE public.country
     ,searchindex character varying COLLATE pg_catalog."default"  NOT NULL
     ,name character varying COLLATE pg_catalog."default"  NOT NULL
     ,description character varying COLLATE pg_catalog."default" 
-    ,code character varying COLLATE pg_catalog."default"  NOT NULL
+    ,action character varying COLLATE pg_catalog."default"  NOT NULL
+    ,status character varying COLLATE pg_catalog."default"  NOT NULL
+    ,entity character varying COLLATE pg_catalog."default"  NOT NULL
+    ,entityid character varying COLLATE pg_catalog."default"  NOT NULL
+    ,actor character varying COLLATE pg_catalog."default"  NOT NULL
+    ,metadata JSONB  
 
 
 );
@@ -33,5 +38,5 @@ CREATE TABLE public.country
 
 ---- create above / drop below ----
 
-DROP TABLE public.country;
+DROP TABLE public.auditlog;
 

@@ -9,7 +9,7 @@ keep: false
 
 -- sure sild
 
-CREATE TABLE public.group
+CREATE TABLE public.bite
 (
     id SERIAL PRIMARY KEY,
     created_at timestamp with time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -23,8 +23,7 @@ CREATE TABLE public.group
     ,searchindex character varying COLLATE pg_catalog."default"  NOT NULL
     ,name character varying COLLATE pg_catalog."default"  NOT NULL
     ,description character varying COLLATE pg_catalog."default" 
-    ,hidden boolean  
-    ,notesid character varying COLLATE pg_catalog."default"  NOT NULL
+    ,body JSONB   NOT NULL
 
 
 );
@@ -34,5 +33,5 @@ CREATE TABLE public.group
 
 ---- create above / drop below ----
 
-DROP TABLE public.group;
+DROP TABLE public.bite;
 
